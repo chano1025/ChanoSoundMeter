@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.chano.chanosoundmeter.activity.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linear_soundmeter"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/linear_graph"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintVertical_weight="1">
+
+        <FrameLayout
+            android:id="@+id/frameLayout_soundmeter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ic_soundmeter_background"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_soundmeter_background" />
+
+            <ImageView
+                android:id="@+id/iv_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_indicator"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/tv_decibel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dB"
+                android:textSize="24sp"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center"/>
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_graph"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintTop_toBottomOf="@id/linear_soundmeter"
+        app:layout_constraintBottom_toTopOf="@id/adView_banner"
+        app:layout_constraintVertical_weight="1">
+
+        <FrameLayout
+            android:id="@+id/fragment_graph"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimary">
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fragment_desc"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimary">
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:adSize="BANNER"
+        app:adUnitId="@string/test_banner_ad_id">
+    </com.google.android.gms.ads.AdView>
+</android.support.constraint.ConstraintLayout>
